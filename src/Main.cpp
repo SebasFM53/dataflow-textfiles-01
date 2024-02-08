@@ -6,6 +6,8 @@
 #include <stdexcept>
 
 #include "FileManager.h"
+#include "VectorProduct.h"
+
 using namespace std;
 
 int main() {
@@ -17,23 +19,32 @@ int main() {
         int randomNumberV1 = rand() % 500;
         int randomNumberV2 = rand() % 59 + 100;
 
-        PhysicalProduct physicalProduct;
-        physicalProduct.setName("PS5 Game: call of duty");
-        physicalProduct.setWeight(randomNumberV1);
-        physicalProduct.setPrice(randomNumberV2);
+        VectorProduct vec(10);
+        PhysicalProduct physicalProduct1;
+        physicalProduct1.setName("call of duty");
+        physicalProduct1.setWeight(randomNumberV1);
+        physicalProduct1.setPrice(randomNumberV2);
+        PhysicalProduct physicalProduct2;
+        physicalProduct2.setName("GTA");
+        physicalProduct2.setWeight(randomNumberV1);
+        physicalProduct2.setPrice(randomNumberV2);
+        vec.agregarProd(physicalProduct2);
+        vec.agregarProd(physicalProduct1);
+
+
 
         // Manager SRP
         FileManager fileManager;
 
         // This function will save the information of the
         // Physical Product in a file with the name games.txt
-        fileManager.save(physicalProduct,  "games.txt");
+        fileManager.save(vec,  "games.csv");
 
-        // This function read a text file by line
-        string fileTextByLine = fileManager.readByLine("games.txt");
+
+        string fileTextByLine = fileManager.readByLine("games.csv");
 
         // This function read a text file by full content in one sentence
-        string fileTextByContent = fileManager.readByContent("games.txt");
+        string fileTextByContent = fileManager.readByContent("games.csv");
 
         cout << "[FILE TEXT READ BY LINE]" << endl;
         cout << fileTextByLine << endl;

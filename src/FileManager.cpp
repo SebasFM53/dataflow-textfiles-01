@@ -9,13 +9,14 @@
  * @param physicalProduct the object to save in the text file
  * @param fileName the name of the text file
  */
-void FileManager::save(const PhysicalProduct &physicalProduct, const string &fileName) {
+void FileManager::save(VectorProduct& vec, const string &fileName) {
 
     // Create and open a text file
     ofstream myFile(fileName, ios_base::app);
+    myFile <<vec.mostrarTodaLaInfo() << endl;
 
     // Write to the file
-    myFile << physicalProduct.toString() << endl;
+
 
     // Close the file
     myFile.close();

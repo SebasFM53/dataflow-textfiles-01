@@ -8,6 +8,7 @@
 #include <iostream>
 #include <fstream>
 #include "PhysicalProduct.h"
+#include "VectorProduct.h"
 
 using namespace std;
 
@@ -18,7 +19,7 @@ public:
      * @param physicalProduct the object to save in the text file
      * @param fileName the name of the text file
      */
-    static void save(const PhysicalProduct& physicalProduct, const string& fileName);
+    static void save(VectorProduct&vec, const string& fileName);
 
     /**
      * Read a text file line by line
